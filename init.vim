@@ -17,6 +17,7 @@ set expandtab
 set smartindent
 set incsearch
 set shada="NONE"
+set backupcopy=yes
 
 
 call plug#begin('~/AppData/Local/nvim/plugged')
@@ -49,11 +50,15 @@ let g:airline_theme='gruvbox'
 let g:python3_host_prog='C:/Python38/python3.exe'
 let g:python_host_prog='C:/Python27/python.exe'
 
+let g:user_emmet_leader_key=','
+
 lua require 'colorizer'.setup()
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
 nnoremap <leader>n :NERDTreeFocus<CR>
+noremap <C-p> :GFiles<CR>
 noremap <C-t> :tabnew<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
