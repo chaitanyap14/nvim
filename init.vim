@@ -25,7 +25,7 @@ call plug#begin('~/AppData/Local/nvim/plugged')
 Plug 'neoclide/coc-python',{'do':'yarn install --frozen-lockfile'}
 Plug ('neoclide/coc.nvim')
 Plug ('joshdick/onedark.vim')
-Plug ('morhetz/gruvbox')
+Plug ('gruvbox-community/gruvbox')
 Plug ('iCyMind/NeoSolarized')
 Plug ('vim-airline/vim-airline')
 Plug ('vim-airline/vim-airline-themes')
@@ -37,7 +37,7 @@ Plug ('davidhalter/jedi-vim')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'mattn/emmet-vim'
 Plug 'junegunn/fzf.vim'
-let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-emmet', 'coc-tslint', 'coc-prettier', 'coc-eslint', 'coc-css']
+let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-emmet', 'coc-tslint', 'coc-prettier', 'coc-eslint', 'coc-css', 'coc-java']
 
 call plug#end()
 
@@ -55,10 +55,12 @@ let g:user_emmet_leader_key=','
 lua require 'colorizer'.setup()
 command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
+highlight Normal guibg=none
+
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
 nnoremap <leader>n :NERDTreeFocus<CR>
-noremap <C-p> :GFiles<CR>
+noremap <C-g> :GFiles<CR>
 noremap <C-t> :tabnew<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+nnoremap <C-f> :Files<CR>
