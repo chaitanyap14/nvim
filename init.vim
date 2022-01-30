@@ -1,7 +1,7 @@
 
 let $VIMINIT = '~/.config/nvim/init.vim'
 
-set clipboard=unnamed
+set clipboard+=unnamedplus
 set encoding=UTF-8
 set number relativenumber
 syntax enable
@@ -57,10 +57,12 @@ command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
 highlight Normal guibg=none
 
+let mapleader = " "
+
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(coc-references)
 nnoremap <leader>n :NERDTreeFocus<CR>
-noremap <C-g> :GFiles<CR>
+noremap <leader>fg :GFiles<CR>
 noremap <C-t> :tabnew<CR>
 nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <C-f> :Files<CR>
+nnoremap <leader>ff :Files<CR>
